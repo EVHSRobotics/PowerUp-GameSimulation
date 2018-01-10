@@ -5,7 +5,7 @@ using UnityEngine;
 public class Switch : MonoBehaviour {
 
 	public int points = 0;
-	public movement m;
+	public float timer;
 
 	// Use this for initialization
 	void Start () {
@@ -14,23 +14,18 @@ public class Switch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (m != null && m.hasBlock) {
-			if (m.onPlatform) {
-				m.timer -= Time.deltaTime;
-				if (m.timer < 0) {
-					m.hasBlock = false;
-					points++;
-				}
-			}
-		}
+
 	}
 
 
 	void OnCollisionEnter(Collision collision) {
 		print ("collision enters");
 		if (collision.gameObject.tag.Equals ("robot")) {
-			m = collision.gameObject.GetComponent<movement> ();
+			movement m = collision.gameObject.GetComponent<movement> ();
 			m.onPlatform = true;
+			m.platform = this;
+			m.timer = timer;
+			m.timerMax = timer;
 		}
 	}
 
@@ -39,7 +34,6 @@ public class Switch : MonoBehaviour {
 		if (collision.gameObject.tag.Equals ("robot")) {
 			movement m = collision.gameObject.GetComponent<movement> ();
 			m.onPlatform = false;
-			m.timer = m.timerMax;
 			m = null;
 		}
 	}
