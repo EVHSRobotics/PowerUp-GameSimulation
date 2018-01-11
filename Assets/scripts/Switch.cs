@@ -6,10 +6,17 @@ public class Switch : MonoBehaviour {
 
 	public int points = 0;
 	public float timer;
+	public bool isRed;
+
 
 	// Use this for initialization
 	void Start () {
-		
+		if (isRed) {
+			print ("setting to red");
+			GetComponent<MeshRenderer> ().material.color = Color.red;
+		} else {
+			GetComponent<MeshRenderer> ().material.color = Color.blue;
+		}
 	}
 	
 	// Update is called once per frame
