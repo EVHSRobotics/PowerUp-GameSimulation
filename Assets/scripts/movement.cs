@@ -13,6 +13,8 @@ public class movement : NetworkBehaviour {
 
 	public GameObject cube;
 
+	public GameObject cubeModel;
+
 	void Start() {	}
 
 	void Update () {
@@ -22,12 +24,13 @@ public class movement : NetworkBehaviour {
 		if (!onPlatform || platform == null) {
 			timer = timerMax;
 			cube.transform.position = this.transform.position;
-		} else {
+		} else if(hasBlock){
 			cube.transform.Translate (0, Time.deltaTime, 0);
 			timer -= Time.deltaTime;
 			if (timer < 0) {
 				hasBlock = false;
 				platform.points++;
+				platform.placeBlock (Instantiate (cubeModel));
 			}
 		}
 
@@ -39,15 +42,20 @@ public class movement : NetworkBehaviour {
 		}
 		
 
-		var x = Input.GetAxis("Horizontal")*1.5f;
-		var z = Input.GetAxis("Vertical")*0.15f;
+		var x = Input.GetAxis("Horizontal")*2f;
+		var y = Input.GetAxis("Vertical")*10f;
 
-		transform.Translate(0, 0, z);	
+		//transform.Translate(0, 0, y);	
+		
+
+		Rigidbody body = this.GetComponent<Rigidbody> ();
+		Vector3 vel = transform.InverseTransformVector (body.velocity);
+		vel.z = y;
+		body.velocity = transform.TransformVector(vel);
 		transform.Rotate (new Vector3 (0, x, 0));
 
-
-
-		
+		transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+		//transform.position = new Vector3 (transform.position.x, -.5f, transform.position.z);
 	}
 
 	void OnCollisionEnter(Collision collision) {

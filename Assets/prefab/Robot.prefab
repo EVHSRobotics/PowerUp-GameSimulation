@@ -116,8 +116,6 @@ GameObject:
   - component: {fileID: 4276490049613068}
   - component: {fileID: 33796900137894408}
   - component: {fileID: 23559513563603594}
-  - component: {fileID: 54818637041456678}
-  - component: {fileID: 114006110808586378}
   m_Layer: 0
   m_Name: RobotCube
   m_TagString: Untagged
@@ -228,8 +226,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1127185636257072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.066944, y: -0.5, z: 9.066669}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 25.890617, y: -0.5, z: 4.058771}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 4132923584185664}
   - {fileID: 4276490049613068}
@@ -530,27 +528,12 @@ Rigidbody:
   m_GameObject: {fileID: 1127185636257072}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 99999
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
---- !u!54 &54818637041456678
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1820878861711774}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &65429077950866414
 BoxCollider:
@@ -571,38 +554,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1686664035700030}
   m_Enabled: 1
---- !u!114 &114006110808586378
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1820878861711774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 204
-    i1: 1
-    i2: 67
-    i3: 112
-    i4: 245
-    i5: 75
-    i6: 191
-    i7: 116
-    i8: 10
-    i9: 6
-    i10: 163
-    i11: 6
-    i12: 152
-    i13: 155
-    i14: 143
-    i15: 82
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!114 &114589531031073618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -648,7 +599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 1
   m_SendInterval: 0.033333335
-  m_SyncRotationAxis: 7
+  m_SyncRotationAxis: 2
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
   m_MovementTheshold: 0.001
@@ -673,6 +624,7 @@ MonoBehaviour:
   timer: 3
   timerMax: 3
   cube: {fileID: 1820878861711774}
+  cubeModel: {fileID: 1563718579170856, guid: cc9bdbff7e63c13458097575ec77775b, type: 2}
 --- !u!114 &114992827539779780
 MonoBehaviour:
   m_ObjectHideFlags: 1
